@@ -1,0 +1,16 @@
+.input {
+  display: flex;
+  padding: 10px 5px;
+  margin: 5px auto;
+  border: none;
+  width: 350px;
+  background-color: #ffffff;
+  color: #14213d;
+  border-radius: 2px;
+  transition: 0.5s;
+
+  &:focus {
+    outline: 2px solid #fca311;
+    border-radius: 2px;
+  }
+}

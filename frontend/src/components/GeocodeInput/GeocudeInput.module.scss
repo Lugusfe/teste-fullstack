@@ -1,0 +1,45 @@
+.input {
+  display: flex;
+  padding: 10px 5px;
+  margin: 5px auto;
+  border: none;
+  width: 350px;
+  background-color: #ffffff;
+  color: #14213d;
+  border-radius: 2px;
+  transition: 0.5s;
+
+  &:focus {
+    outline: 2px solid #fca311;
+    border-radius: 2px;
+  }
+}
+
+.suggestionContainer {
+  background-color: #ffffff;
+  padding: 7px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 350px;
+}
+
+.suggestionOption {
+  list-style-type: none;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  border-bottom: 1px solid #fca311;
+
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden; /* "overflow" value must be different from "visible" */
+
+  text-overflow: ellipsis;
+
+  &:hover {
+    transition: 0.5;
+    cursor: pointer;
+    border-bottom: 1px solid #14213d;
+  }
+}
