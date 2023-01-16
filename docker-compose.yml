@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  frontend:
+    image: "delivery-frontend"
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - 3500:3500
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - .:/app
+
+  api:
+    restart: always
+    image: "delivery-backend"
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - 3501:3501
+    env_file:
+      - ./backend/.env
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=delivery
+    ports:
+      - "5432:5432"
+networks:
+  delivery_app:
+    driver: bridge

@@ -42,6 +42,16 @@ export default function Home() {
     setCenter(m.getCenter()!.toJSON());
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      name: event.target.name.value,
+      weight: event.target.weight.value,
+    };
+
+    console.log(data);
+  };
+
   return (
     <>
       <Head>
@@ -52,9 +62,22 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <section className={styles.sideBar}>
-          <TextInput type="text" placeholder="Nome do Cliente" />
-          <TextInput type="number" placeholder="Peso da Entrega (KG)" />
-          <GeocodingInput onNewLatLng={newLocation} />
+          <form onSubmit={handleSubmit}>
+            <TextInput
+              type="text"
+              placeholder="Nome do Cliente"
+              id="name"
+              required
+            />
+            <TextInput
+              type="number"
+              placeholder="Peso da Entrega (KG)"
+              id="weight"
+              required
+            />
+            <GeocodingInput onNewLatLng={newLocation} />
+            <button type="submit">Submit</button>
+          </form>
         </section>
         <Wrapper
           apiKey={process.env.NEXT_PUBLIC_API_GOOGLE_KEY}
