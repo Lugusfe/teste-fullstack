@@ -10,6 +10,7 @@ O Frontend construído em Next.js pode ser executado localmente por meio dos com
 
 - Acessar a pasta `/frontend`;
 - Instalar o projeto executando `npm install`;
+- Adicionar o arquivo `.env` se baseando no `.env.example`; (A variável de ambiente `NEXT_PUBLIC_API_GOOGLE_KEY` é uma Api key do google, estarei anexando a que utilizei no email)
 - Executar o comando `npm run dev` e acessar o projeto em [http://localhost:3000/](http://localhost:3000/).
 
 ### Backend
@@ -20,6 +21,7 @@ O Backend construído em Nest.js pode ser executado localmente por meio dos coma
 
 - Acessar a pasta `/backend`;
 - Instalar o projeto executando `npm install`;
+- Adicionar o arquivo `.env` se baseando no `.env.example`;
 - Executar o comando `npm run start:dev` e a api estará disponível em [http://localhost:3501/](http://localhost:3501/);
 - A documentação dos endpoints estará disponível em [http://localhost:3501/api](http://localhost:3501/api).
 
