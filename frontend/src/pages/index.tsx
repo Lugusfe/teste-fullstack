@@ -31,7 +31,6 @@ export default function Home() {
   };
 
   const onClick = (e: google.maps.MapMouseEvent) => {
-    // avoid directly mutating state
     console.log(e.latLng!.lat());
     setClicks([...clicks, e.latLng!]);
   };

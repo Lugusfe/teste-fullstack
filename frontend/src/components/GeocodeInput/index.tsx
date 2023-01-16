@@ -26,23 +26,17 @@ export const GeocodingInput = (props: IGeocodingInput) => {
     setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
-    requestOptions: {
-      /* Define search scope here */
-    },
+    requestOptions: {},
     debounce: 300,
   });
   const ref = useRef();
-
   const handleInput = (e) => {
-    // Update the keyword of the input element
     setValue(e.target.value);
   };
 
   const handleSelect =
     ({ description }) =>
     () => {
-      // When user selects a place, we can replace the keyword without request data from API
-      // by setting the second parameter to "false"
       setValue(description, false);
       clearSuggestions();
 
@@ -92,49 +86,3 @@ export const GeocodingInput = (props: IGeocodingInput) => {
     </>
   );
 };
-
-// export const GeocodingInput = () => {
-//   const geocodingRef = useRef<HTMLInputElement>();
-
-//   const initGeocoding = () => {
-//     const autocomplete = new google.maps.places.Autocomplete(
-//       geocodingRef.current,
-//       {
-//         fields: ["address_components", "formatted_address"],
-//         strictBounds: false,
-//         types: ["address"],
-//       }
-//     );
-//     console.log("init");
-//     // Fire Event when a suggested name is selected
-//     autocomplete.addListener("place_changed", () => {
-//       handlePlaceSelect(autocomplete);
-//     });
-//   };
-
-//   const handlePlaceSelect = (autocomplete: google.maps.places.Autocomplete) => {
-//     // Extract City From Address Object
-//     const addressObject = autocomplete.getPlace();
-//     const address = addressObject.address_components;
-
-//     console.log("search");
-//     // Check if address is valid
-//     if (address) {
-//       // Set State
-//       console.log("address", address);
-//       console.log("addressObject", addressObject);
-//     }
-//   };
-
-//   return (
-//     <>
-//       <input type="text" className={styles.input} ref={geocodingRef} />
-
-// <Script
-//   src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_API_GOOGLE_KEY}&libraries=places&v=3.exp`}
-//   async
-//   onLoad={initGeocoding}
-// />
-//     </>
-//   );
-// };

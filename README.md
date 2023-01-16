@@ -1,101 +1,51 @@
-<img src="https://i.imgur.com/rNOFiz0.jpeg" width="100%">
+# Teste Fullstack - Luís Ferreira
 
-# Introdução
+Primeiramente quero agradecer a oportunidade de mostrar do que sou capaz e de conhecer um pouco mais a Uhuu!; infelizmente até o presente momento não consegui terminar a aplicação, tive alguns contratempos pessoais e problemas com algumas ferramentas que acabaram resultando na entrega incompleta, porém, apesar do prazo ter se encerrado pretendo concluir a aplicação, curti muito o desafio que me proporcionou novos conhecimentos sobre geocoding e maps e um teste fullstack dos meus conhecimentos.
 
-Olá! Obrigado pelo interesse em participar do nosso processo seletivo para dev fullstack na [Uhuu](https://uhuu.com/).
+## Execução do Projeto Localmente
 
-O objetivo do desafio proposto é permitir uma melhor avaliação das suas habilidades como candidato à vaga de fullstack. Este desafio deve ser feito apenas por você. Sua implementação e escolha de ferramentas poderá ser questionada em outra etapa.
+### Frontend
 
-Um layout final bem elaborado e desenhado aponta para um diferencial seu, mas não é necessário se preocupar muito com o design. Afinal, não estamos buscando um designer para essa vaga!
+O Frontend construído em Next.js pode ser executado localmente por meio dos comandos abaixo:
 
-## O desafio
+- Acessar a pasta `/frontend`;
+- Instalar o projeto executando `npm install`;
+- Executar o comando `npm run dev` e acessar o projeto em [http://localhost:3000/](http://localhost:3000/).
 
-Ao finalizar o desafio, o usuário deverá estar habilitado a cadastrar os clientes no formulário, e ao salvar, atualizar o mapa com o ponto (pin) daquele cadastro e a tabela com os dados do cliente. Na tabela deverá conter um botão para excluir todos os dados, que deverá remover tudo do banco, mapa e tabela.
+### Backend
 
-Para garantir um melhor desempenho, a tabela deverá ser paginada.
+O Backend construído em Nest.js pode ser executado localmente por meio dos comandos abaixo:
 
-Siga o [layout abaixo](challenge.png) sugerido. Caso queira, ele pode ser melhorado de acordo com a sua preferência.
+> Infelizmente meu sistema operacional conflitou com o docker e não consegui testar corretamente o docker-compose e a Dockerfile criada, isso me desapontou mas corrigirei o problema do docker e assegurarei que o compose esteja funcional! Já que o docker está inconsistente deixarei as instruções para executar o projeto localmente.
 
-![Layout](challenge.png)
+- Acessar a pasta `/backend`;
+- Instalar o projeto executando `npm install`;
+- Executar o comando `npm run start:dev` e a api estará disponível em [http://localhost:3501/](http://localhost:3501/);
+- A documentação dos endpoints estará disponível em [http://localhost:3501/api](http://localhost:3501/api).
 
-## Requisitos funcionais
+## Pontos Concluídos
 
-* [ ] O usuário deve ter acesso a uma tabela com as entregas programadas
+- Criação do Backend;
+- Estruturação dos dados no banco de dados;
+- Integração com o Swagger e listagem de endpoints;
+- Criação do Frontend;
+- Integração com geocoding para coletar dados de endereço;
+- Integração com o Google maps para visualização do mapa;
+- Criação de ambiente Docker para deploy (em teste).
 
-* [ ] O usuário deve conseguir paginar a tabela com os registros
+## Pontos Pendentes
 
-* [ ] O usuário deve ter um botão para buscar os dados de latitude e longitude a partir do endereço (pode ser usado o [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/intro?hl=pt-br) ou outro equivalente, como o [Nominatim](https://nominatim.org/))
+- Criação de endpoints faltantes (DELETE dos dados);
+- Complementar a documentação no swagger;
+- Assegurar a funcionalidade do ambiente Docker;
+- Integração do frontend com o backend (consumo dos endpoints);
+- Tabela para visualização dos dados.
+- Tratativas de erros.
 
-* [ ] O usuário poderá cadastrar novos clientes na tabela de clientes
+## Conclusão e Escolhas de Ferramentas
 
-* [ ] O usuário deve ter um mapa com todas as entregas apontadas com pins
+Curti muito essa ideia de projeto e apesar de estar incompleta nesse momento pretendo tirar mais dois dias para finalizar e testar, me diverti no processo e demorei um pouco para me habituar com as apis do google maps além do erro no docker que enfrentei ter sido frustrante e não tinha ocorrido anteriormente.
 
-* [ ] O usuário deve ter um botão para resetar todos os cadastros
+Utilizei Nest.js no Backend por já estar habituado com o framework opinado e julgo ter uma boa estruturação além de dar uma base caso o projeto escalasse; junto ao Nest.js utilizei Prisma para conexão com o banco de dados, é um ORM que é continuamente atualizado e tem uma ótima experiência de desenvolvimento.
 
-## Estrutura proposta dos campos 
-
-A estrutura proposta para armazenar os dados é a seguinte:
-
-1. Nome do cliente
-2. Peso em kg
-3. Endereço
-    - Logradouro
-    - Número
-    - Bairro
-    - Complemento
-    - Cidade
-    - Estado
-    - País
-    - Geolocalização
-        - Latitude
-        - Longitude
-
-## Requisitos não funcionais
-
-* [ ] O frontend deverá ser criado usando [React](https://reactjs.org/)
-
-* [ ] O backend deverá ser criado utilizando node.js (você pode escolher qualquer framework javascript/typescript para construção do backend)
-
-* [ ] Na raiz do projeto, será necessário incluir um arquivo `README.md` com as instruções para construir seu projeto localmente. Opcionalmente você pode detalhar as razões pelas escolhas de ferramentas e técnicas aplicadas ao desafio.
-
-* [ ] O frontend deverá se comportar da mesma forma na última versão estável dos seguintes browsers: Chrome, Firefox, Edge
-
-* [ ] O backend deverá rodar no docker (ou docker-compose)
-
-* [ ] O backend deve possuir alguma documentação das api (swagger ou outra equivalente)
-
-## Dicas e observações
-
-> Obs 1.: Fique a vontade para utilizar qualquer 3rd party;
-
-> Obs 2.: Considere que todos os campos são de preenchimento obrigatório no formulário.
-
-> Obs 3.: Considere validar os campos também na API e em caso de inconsistência retornar erro num JSON estruturado com código HTTP 400
-
-
-## Critérios de avaliação
-
-- Boas práticas de desenvolvimento como: componentização, design patterns, clean code
-- Domínio das ferramentas e linguagens que compõe um app de frontend e backend moderno
-- Documentação: explicação para construir o app localmente, histórico e workflow de git
-
-## Entrega
-
-Para realizar a entrega do desafio, você deverá enviar para o recrutador o link para o repositório com seu código. Exemplo:
-
-https://github.com/seu-nome/fullstack-challenge.git
-
-Não se esqueça de criar um arquivo `README.md` contendo as instruções para construir o app localmente.
-
-:bangbang: **Importante!** O repositório com seu código deve estar publico, para que possamos acessa-lo!
-
-## Feedback
-
-Na Uhuu, valorizamos muito o fator humano e feedbacks. Acreditamos que o feedback é essencial para melhorar, aprender e facilitar processos. Dessa forma, assim que o seu desafio for submetido, prometemos enviar um feedback técnico nos próximos dias usando todos os critérios de avaliação descritos acima.
-
-## Dúvidas
-
-Caso haja qualquer dúvida sobre o teste, entre em contato com o recrutador que nós responderemos o mais rápido possivel.
-
----
-## Obrigado e bom desafio!
+No Frontend optei por utilizar o React com o Next.js também por estar habituado e gostar do framework (apesar de não ter utilizado suas funcionalidades Backend) juntamente com o Sass para estilização.
